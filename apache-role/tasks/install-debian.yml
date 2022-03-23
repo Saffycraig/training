@@ -1,0 +1,3 @@
+---
+- name: apache installed
+  apt: name=apache2 update_cache=yes state=latest 

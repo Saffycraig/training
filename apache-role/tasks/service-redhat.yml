@@ -1,0 +1,3 @@
+---
+- name: Start and Enable httpd service
+  systemd: name=httpd state=started enabled=true

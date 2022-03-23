@@ -1,0 +1,7 @@
+---
+- name: Install MySQL server
+  hosts: dbservers
+  gather_facts: yes
+  roles:
+  - role: geerlingguy.mysql
+    become: yes

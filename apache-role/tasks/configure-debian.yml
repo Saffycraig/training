@@ -1,0 +1,4 @@
+---
+- name: Copy apache2 configuration file
+  template: src=files/httpd.conf.j2 dest=/etc/apache2/apache2.conf
+

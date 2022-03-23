@@ -1,0 +1,13 @@
+---
+- name: Hash demo
+  hosts: app1
+  become: yes
+  tasks:
+  - name: Create user from hash
+    user:
+      name: "{{ item.name }}"
+      state: present
+      groups: "{{ item.groups }}"
+    loop:
+    - { name: 'jane', groups: 'wheel' }
+    - { name: 'joe', groups: 'root' }

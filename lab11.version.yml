@@ -1,0 +1,8 @@
+---
+- name: Get ansible version
+  gather_facts: no
+  hosts: all
+  tasks:
+  - name: display ansible version
+    debug:
+      msg: "{{ lookup('ansible_version')  }}"

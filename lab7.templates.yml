@@ -1,0 +1,11 @@
+---
+- name: jinja2 index.html template
+  hosts: webservers
+  gather_facts: true
+  become: yes
+  tasks:
+  - name: distributing updated index file
+    template:
+      src: templates/index.html.j2
+      dest: /var/www/html/index.html
+      mode: 0644

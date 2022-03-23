@@ -1,0 +1,14 @@
+---
+- hosts: all
+  gather_facts: true
+  tasks:
+  - name: install, configure and start httpd
+    block:
+    - name: install httpd
+      yum: name=httpd state=latest
+    - name: configure httpd
+      copy: src=httpd.conf dest=/etc/httpd/conf/httpd.conf
+    - name: start httpd
+      systemd: name=httpd state=started
+    when: ansible_os_family == "RedHat"
+    become: true

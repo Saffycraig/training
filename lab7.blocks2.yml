@@ -1,0 +1,17 @@
+---
+- hosts: webservers
+  gather_facts: true
+  become: true
+  tasks:
+  - name: install, configure and start httpd
+    block:
+    - name: deploy index.html
+      template: src=index.html.j2 dest=/var/www/html/index.html
+    rescue:
+    - name: Check Apache is installed 
+      yum: name=httpd state=latest
+    - name: configure httpd
+      copy: src=httpd.conf dest=/etc/httpd/conf/httpd.conf
+    always:
+    - name: start httpd
+      systemd: name=httpd state=started

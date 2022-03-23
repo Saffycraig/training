@@ -1,0 +1,10 @@
+---
+- name: check if service is enabled and started
+  hosts: all
+  become: yes
+  tasks:
+    - name: Check service is enabled and started
+      systemd:
+        name: "{{ service }}"
+        enabled: true
+        state: started

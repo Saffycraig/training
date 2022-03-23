@@ -1,0 +1,9 @@
+---
+- name: Copy index.html
+  hosts: webservers
+  become: yes
+  tasks:
+    - name: copy index.html
+      copy:
+        src: "../files/{{ stage }}_index.html"
+        dest: /var/www/html/index.html

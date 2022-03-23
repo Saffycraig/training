@@ -1,0 +1,14 @@
+---
+- hosts: all
+  become: yes
+  vars: 
+    user: admin
+    group: wheel
+    homedir: /dev/null
+    shell: /bin/false
+  tasks:
+  - user: 
+      name: "{{user}}"
+      group: "{{group}}" 
+      home: "{{homedir}}"
+      shell: "{{shell}}"

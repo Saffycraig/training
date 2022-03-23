@@ -1,0 +1,11 @@
+---
+- name: Loop demo
+  hosts: app1
+  tasks:
+  - name: Check if service is running
+    systemd:
+      name: "{{ item }}"
+      state: started
+    loop:
+    - httpd
+    - sshd

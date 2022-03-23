@@ -1,0 +1,3 @@
+---
+- name: Copy httpd configuration file
+  template: src=files/httpd.conf.j2 dest=/etc/httpd/conf/httpd.conf

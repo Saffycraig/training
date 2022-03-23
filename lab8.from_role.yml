@@ -1,0 +1,8 @@
+---
+- hosts: all
+  gather_facts: true
+  become: yes
+  vars:
+    http_port: 8080
+  roles:
+  - apache-role

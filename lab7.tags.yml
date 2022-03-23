@@ -1,0 +1,26 @@
+---
+- name: Apache
+  hosts: webservers
+  gather_facts: yes
+  tasks:
+  - name: Latest apache version installed
+    yum:
+      name: httpd
+      state: latest
+    tags:
+    - packages
+
+  - name: apache server started and enabled
+    systemd:
+      name: httpd
+      state: started
+      enabled: yes
+    tags:
+    - services
+
+  - name: index.html deploy
+    copy:
+      src: index.html
+      dest: /var/www/html/
+    tags:
+    - deploy
